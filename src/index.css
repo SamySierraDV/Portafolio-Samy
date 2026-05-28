@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #08132a;
+  --color-surface-container-lowest: #030d25;
+  --color-surface-container-low: #101b33;
+  --color-surface-container: #151f37;
+  --color-surface-container-high: #1f2942;
+  --color-surface-container-highest: #2a344d;
+  --color-primary: #dbfcff;
+  --color-on-primary: #00363a;
+  --color-primary-container: #00f0ff;
+  --color-on-primary-container: #006970;
+  --color-outline: #849495;
+  --color-outline-variant: #3b494b;
+  --color-on-surface-variant: #b9cacb;
+  --color-on-surface: #d9e2ff;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Hanken Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom visual utilities for the War Room theme */
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.glow-cyan-text {
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  border-color: rgba(0, 240, 255, 0.4);
+}
+
+.tactical-grid {
+  background-image: linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(to right, transparent, rgba(0, 240, 255, 0.2), transparent);
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+}
+
+/* Glass panel style */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(17, 34, 64, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+/* Custom slider style */
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 100%;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #1f2942;
+  height: 4px;
+  border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: #00f0ff;
+  border-radius: 50%;
+  margin-top: -6px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Radar rings */
+.radar-line {
+  stroke: rgba(0, 240, 255, 0.15);
+  stroke-width: 1;
+}
+
+/* Mobile responsive scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08132a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2942;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}

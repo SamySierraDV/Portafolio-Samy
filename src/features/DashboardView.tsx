@@ -1,0 +1,331 @@
+import { ArrowRight, Trophy, TrendingUp, Cpu, Network, Award, ShieldAlert, BadgeInfo, Code, Briefcase, Calendar, Download } from 'lucide-react';
+import { developerProfile, workExperiences, projects } from '../data/portfolioData';
+
+interface DashboardViewProps {
+  onNavigateToTab: (tabId: string) => void;
+  onDownloadDossier: () => void;
+  activeFilters?: any;
+}
+
+export default function DashboardView({ onNavigateToTab, onDownloadDossier, activeFilters }: DashboardViewProps) {
+  // Mock impact score metrics
+  const impactMetrics = [
+    { label: "PROJECT", value: "A+", percentage: 65, active: false },
+    { label: "ALPHA", value: "A", percentage: 50, active: false },
+    { label: "BETA", value: "MAX", percentage: 100, active: true },
+    { label: "CURRENT", value: "A+", percentage: 80, active: false }
+  ];
+
+  const techStats = [
+    { title: "Core Language", value: "Java / Spring", level: "ADVANCED", grade: "Scout Grade: A+" },
+    { title: "Design Patterns", value: "System Arch", level: "ADVANCED", grade: "Scout Grade: A" },
+    { title: "Data Persistence", value: "SQL / NoSQL", level: "INTERMEDIATE", grade: "Scout Grade: B+" }
+  ];
+
+  return (
+    <div className="space-y-8 animate-fade-in">
+      
+      {/* Banner: MOST VALUABLE DEVELOPERS */}
+      <div 
+        onClick={() => onNavigateToTab('projects')}
+        className="group flex justify-between items-center px-4 py-3 bg-surface-container-low border border-primary-container/20 hover:border-primary-container/40 rounded-xl cursor-pointer transition-all hover:shadow-[0_0_15px_rgba(0,240,255,0.05)] text-left"
+      >
+        <div className="flex items-center gap-3">
+          <span className="w-1.5 h-1.5 bg-primary-container rounded-full animate-ping"></span>
+          <span className="font-mono text-[10px] md:text-xs tracking-wider text-primary font-bold">
+            THE MOST VALUABLE DEVELOPERS // VIEW ALL PROFILES
+          </span>
+        </div>
+        <ArrowRight className="w-4 h-4 text-primary-container group-hover:translate-x-1 transition-transform" />
+      </div>
+
+      {/* Grid: Featured Profile Card & Visual Grid Map */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        {/* Core Profile Card Widget */}
+        <div className="lg:col-span-8 bg-surface-container border border-outline-variant/30 rounded-xl overflow-hidden relative shadow-lg">
+          {/* Cyan top indicator bar */}
+          <div className="absolute inset-x-0 top-0 h-[2.5px] bg-primary-container" />
+          
+          {/* Interactive visual layout */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6">
+            
+            {/* Player Headshot wrapper */}
+            <div className="md:col-span-5 relative group flex items-center justify-center bg-surface-container-low rounded-lg p-2 overflow-hidden aspect-[4/5] max-w-[280px] mx-auto md:mx-0">
+              {/* Transferable badge overlay */}
+              <span className="absolute top-4 left-4 z-10 px-3 py-1 text-[9px] font-mono font-bold uppercase rounded bg-primary-container text-background tracking-widest cursor-default">
+                TRANSFERIBLE
+              </span>
+
+              {/* Headshot image */}
+              <div className="w-full h-full rounded border border-outline-variant/20 overflow-hidden relative">
+                <img 
+                  alt={developerProfile.fullName} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                  src={developerProfile.profilePhoto} 
+                />
+                {/* Visual filter blending */}
+                <div className="absolute inset-0 bg-primary-container/5 mix-blend-overlay" />
+              </div>
+
+              {/* Potential ratings markers */}
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col items-start bg-background/80 backdrop-blur-sm p-3 rounded border border-outline-variant/20">
+                <span className="text-[9px] font-mono text-outline uppercase tracking-wider mb-1">Market Value</span>
+                <div className="font-display text-2xl font-black text-primary flex items-baseline gap-1">
+                  {developerProfile.marketValue} 
+                </div>
+                
+                <div className="flex gap-1 mt-1">
+                  <span className="text-[8px] font-mono text-on-surface-variant mr-1">Potential:</span>
+                  {[...Array(5)].map((_, i) => (
+                    <span 
+                      key={i} 
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        i < developerProfile.potential 
+                          ? 'bg-primary-container shadow-[0_0_6px_#00f0ff]' 
+                          : 'bg-surface-container-highest'
+                      }`} 
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Profile specifications list */}
+            <div className="md:col-span-7 flex flex-col justify-between py-2 text-left">
+              <div className="space-y-4">
+                <div className="border-b border-outline-variant/20 pb-2">
+                  <span className="font-mono text-[9px] text-primary-container uppercase tracking-wider">Candidate Profile</span>
+                  <h2 className="font-display text-2xl font-extrabold text-primary">{developerProfile.fullName}</h2>
+                  <p className="font-mono text-xs text-on-surface-variant uppercase">{developerProfile.role}</p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-y-4 gap-x-2">
+                  <div>
+                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">BIRTHPLACE</span>
+                    <span className="font-sans text-xs font-bold text-on-surface">{developerProfile.birthplace}</span>
+                  </div>
+                  <div>
+                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">EXPERIENCE</span>
+                    <span className="font-sans text-xs font-bold text-primary-container">{developerProfile.experienceYears}</span>
+                  </div>
+                  <div>
+                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">CURRENT CLUB</span>
+                    <span className="font-sans text-xs font-bold text-on-surface">{developerProfile.currentClub}</span>
+                  </div>
+                  <div>
+                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">SIGNED UNTIL</span>
+                    <span className="font-sans text-xs font-bold text-on-surface">{developerProfile.signedUntil}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Status details indicators */}
+              <div className="mt-6 pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+                <span className="text-[10px] font-mono text-outline-variant">SYSTEM COMPLIANCE</span>
+                <span className="px-2 py-0.5 bg-green-500/10 text-green-400 border border-green-500/30 font-mono text-[9px] rounded uppercase">
+                  READY FOR SIGNING
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        {/* Impact Score Widget column */}
+        <div className="lg:col-span-4 bg-surface-container border border-outline-variant/30 rounded-xl p-5 flex flex-col relative shadow-lg text-left">
+          <div className="absolute inset-x-0 top-0 h-[2.5px] bg-primary-container" />
+          
+          <div className="flex justify-between items-start mb-6">
+            <div>
+              <h3 className="font-display text-base font-bold text-primary tracking-wider uppercase">IMPACT SCORE</h3>
+              <p className="font-mono text-[9px] text-outline uppercase tracking-wider">Performance Arbitrage</p>
+            </div>
+            <div className="flex items-center gap-1 font-mono text-xs text-green-400 bg-green-500/5 px-2 py-0.5 rounded border border-green-500/20 font-bold">
+              <TrendingUp className="w-3.5 h-3.5" />
+              <span>+12.4%</span>
+            </div>
+          </div>
+
+          {/* Bar charts layout */}
+          <div className="flex-1 flex items-end justify-between gap-3 h-[180px] p-2 bg-background/50 border border-outline-variant/10 rounded-lg">
+            {impactMetrics.map((it) => (
+              <div key={it.label} className="flex-1 flex flex-col items-center h-full justify-end group cursor-pointer">
+                
+                {/* Bar */}
+                <div className="w-full relative rounded-t transition-all duration-500 group-hover:scale-x-[1.05]" style={{ height: `${it.percentage}%` }}>
+                  
+                  {/* Badge overlay on top */}
+                  {it.active ? (
+                    <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-primary-container text-background font-mono text-[9px] font-extrabold px-1.5 py-0.5 rounded shadow z-10 animate-pulse">
+                      {it.value}
+                    </div>
+                  ) : (
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 font-mono text-[9px] text-outline opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {it.value}
+                    </div>
+                  )}
+
+                  <div className={`w-full h-full rounded-t ${
+                    it.active 
+                      ? 'bg-primary-container shadow-[0_0_15px_rgba(0,240,255,0.4)]' 
+                      : 'bg-surface-container-highest/60 hover:bg-primary-container/40'
+                  }`} />
+                </div>
+                
+                {/* Label text */}
+                <span className="font-mono text-[9px] text-outline mt-3 block group-hover:text-primary transition-colors">
+                  {it.label}
+                </span>
+
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 font-sans text-[11px] text-on-surface-variant italic">
+            "Evaluation based on high-concurrency monolith decoupling projects, Kafka metrics and cloud scaling parameters."
+          </p>
+        </div>
+
+      </div>
+
+      {/* Section split: TACTICAL POSITIONING Quick Portal preview */}
+      <div 
+        onClick={() => onNavigateToTab('tacticals')}
+        className="bg-surface-container border border-outline-variant/30 rounded-xl p-5 hover:border-primary-container/40 transition-all cursor-pointer group shadow-lg text-left"
+      >
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-1.5 h-4 bg-primary-container rounded" />
+            <h3 className="font-display text-sm font-bold text-primary tracking-wider uppercase">TACTICAL POSITIONING</h3>
+          </div>
+          <span className="font-mono text-[10px] text-primary-container uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+            CONFIGURAR FORMACIÓN DE COMBATE <ArrowRight className="w-3.5 h-3.5" />
+          </span>
+        </div>
+        
+        <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
+          The candidate is positioned as a **Microservices Architect** driving tactical API Integration, perimeter security, and database caching patterns. Click to deploy dynamic scouting filters.
+        </p>
+      </div>
+
+      {/* Grid: TECHNICAL STATS shortlist & employment timeline */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        {/* Technical Stats Card */}
+        <div className="bg-surface-container border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-1.5 h-5 bg-primary-container rounded" />
+            <h3 className="font-display text-base font-bold text-primary tracking-wider uppercase">TECHNICAL STATS</h3>
+          </div>
+
+          <div className="space-y-4">
+            {techStats.map((stat, i) => (
+              <div 
+                key={i} 
+                className="p-4 bg-surface-container-low border border-outline-variant/20 rounded-lg flex justify-between items-center hover:border-primary-container/30 transition-all"
+              >
+                <div>
+                  <span className="font-mono text-[9px] text-outline uppercase tracking-wider">{stat.title}</span>
+                  <div className="font-display text-lg font-bold text-primary">{stat.value}</div>
+                </div>
+                
+                <div className="text-right">
+                  <span className="px-2 py-0.5 bg-primary-container/10 text-primary-container border border-primary-container/30 font-mono text-[10px] font-bold rounded uppercase">
+                    {stat.level}
+                  </span>
+                  <div className="font-mono text-[10px] text-outline mt-1">{stat.grade}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Historial de Partidas Timeline */}
+        <div className="bg-surface-container border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="w-1.5 h-5 bg-primary-container rounded" />
+              <h3 className="font-display text-base font-bold text-primary tracking-wider uppercase">HISTORIAL DE PARTIDAS</h3>
+            </div>
+            <span className="font-mono text-[9px] text-outline uppercase tracking-wider">FULL CAREER</span>
+          </div>
+
+          <div className="space-y-6 relative pl-4 border-l border-outline-variant/50">
+            {workExperiences.map((exp, idx) => (
+              <div key={exp.id} className="relative">
+                {/* Glowing bullet marker */}
+                <span className={`absolute -left-[20.5px] top-1 w-2.5 h-2.5 rounded-full ${
+                  exp.isCurrent 
+                    ? 'bg-primary-container shadow-[0_0_8px_#00f0ff]' 
+                    : 'bg-surface-container-highest'
+                }`} />
+
+                <div className="space-y-1.5">
+                  <span className="font-mono text-[9px] text-primary-container uppercase tracking-wider">{exp.period}</span>
+                  <div className="flex flex-wrap items-baseline gap-x-2">
+                    <h4 className="font-display text-sm font-bold text-primary">{exp.company}</h4>
+                    <span className="text-[10px] font-mono text-outline-variant uppercase">{exp.role}</span>
+                  </div>
+                  
+                  {/* Quote-like bubble formatting */}
+                  <div className="p-3 bg-surface-container-high/60 border border-outline-variant/15 rounded-lg text-xs font-sans text-on-surface-variant leading-relaxed">
+                    "{exp.description}"
+                    
+                    <div className="flex flex-wrap gap-1.5 mt-2 pt-2 border-t border-outline-variant/10">
+                      {exp.tags.map(t => (
+                        <span key={t} className="bg-surface-container-low px-1.5 py-0.5 rounded border border-outline-variant/20 font-mono text-[9px] uppercase">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      {/* Grid: Secondary metrics labels cards & Dossier Download */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        {/* Methodology card */}
+        <div className="bg-surface-container-low border border-outline-variant/20 p-4 rounded-xl flex items-center gap-4 text-left">
+          <div className="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center border border-primary-container/20">
+            <Calendar className="w-5 h-5 text-primary-container" />
+          </div>
+          <div>
+            <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">Methodology</span>
+            <span className="font-display text-sm font-extrabold text-primary uppercase">Agile/Scrum Orchestration</span>
+          </div>
+        </div>
+
+        {/* Scale Card */}
+        <div className="bg-surface-container-low border border-outline-variant/20 p-4 rounded-xl flex items-center gap-4 text-left">
+          <div className="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center border border-primary-container/20">
+            <Code className="w-5 h-5 text-primary-container" />
+          </div>
+          <div>
+            <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">Scale</span>
+            <span className="font-display text-sm font-extrabold text-primary uppercase">Enterprise Platforms</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="text-center pt-4">
+        <button 
+          onClick={onDownloadDossier}
+          className="group relative inline-flex items-center gap-2.5 px-8 py-4 bg-primary-container text-background font-mono text-xs font-extrabold tracking-widest rounded shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:scale-105 active:scale-95 transition-all uppercase"
+        >
+          <Download className="w-4 h-4 text-background" />
+          Descargar Dossier Completo
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+        </button>
+      </div>
+
+    </div>
+  );
+}
