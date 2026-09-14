@@ -18,6 +18,8 @@ export interface Project {
     uptime: string; // e.g. "99.99%"
     throughput: string; // e.g. "50k req/s"
   };
+  githubUrl?: string;
+  demoUrl?: string;
   scoutNotes?: string;
 }
 

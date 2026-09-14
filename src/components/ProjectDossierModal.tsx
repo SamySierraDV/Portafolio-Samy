@@ -1,4 +1,4 @@
-import { X, Code, ClipboardList, Database, Terminal, ArrowUpRight, CheckCircle, Network, Layers, Container } from 'lucide-react';
+import { X, Code, ClipboardList, Database, Terminal, ArrowUpRight, CheckCircle, Network, Layers, Container, ExternalLink } from 'lucide-react';
 import { Project } from '../types';
 
 interface ProjectDossierModalProps {
@@ -240,12 +240,24 @@ export default function ProjectDossierModal({ project, onClose, onViewSource }: 
             {/* View Source Trigger actions block */}
             <div className="flex flex-col gap-3">
               <button 
-                onClick={() => onViewSource && onViewSource(project)}
+                onClick={() => project.githubUrl ? window.open(project.githubUrl, '_blank') : onViewSource?.(project)}
                 className="w-full py-3.5 bg-primary-container text-background font-mono text-[10px] font-extrabold uppercase tracking-widest rounded shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.5)] transition-all active:scale-[0.98] flex items-center justify-center gap-2"
               >
                 <Code className="w-4 h-4" />
-                LOG IN TO REPO / VIEW CODE
+                ACCESS REPOSITORY
               </button>
+              
+              {project.demoUrl && (
+                <a 
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 bg-surface-container-highest text-primary font-mono text-[10px] font-extrabold uppercase tracking-widest rounded border border-primary-container/20 hover:bg-primary-container/10 transition-all flex items-center justify-center gap-2 text-center"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  INITIALIZE LIVE DEMO
+                </a>
+              )}
               
               <button 
                 onClick={onClose}

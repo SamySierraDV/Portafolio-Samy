@@ -9,9 +9,12 @@ import {
   FolderDot,
   Radio,
   FileCheck2,
-  Tv2
+  Tv2,
+  Target,
+  Zap,
+  CheckCircle2
 } from 'lucide-react';
-import { tacticalNodes } from '../data/portfolioData';
+import { tacticalNodes, workExperiences } from '../data/portfolioData';
 import { TacticalNode, ScoutingFilters } from '../types';
 import TacticalModal from '../components/TacticalModal';
 
@@ -313,6 +316,57 @@ export default function TacticsView({ onNodeSelect, filters, onFiltersChange }: 
 
         </div>
 
+      </div>
+
+      {/* Career Trajectory Section: EXPEDIENTE DE CAMPO */}
+      <div className="space-y-6">
+        <div className="flex items-center gap-3 border-b border-outline-variant/20 pb-4">
+          <div className="w-1.5 h-6 bg-primary-container rounded" />
+          <h3 className="font-display text-xl font-bold text-primary tracking-wider uppercase">EXPEDIENTE DE CAMPO: TRAYECTORIA TÁCTICA</h3>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6">
+          {workExperiences.map((exp) => (
+            <div 
+              key={exp.id} 
+              className="group bg-surface-container border border-outline-variant/30 rounded-xl p-6 hover:border-primary-container/40 transition-all shadow-lg text-left"
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div>
+                  <span className="font-mono text-[10px] text-primary-container font-black tracking-[0.2em] uppercase">
+                    {exp.period}
+                  </span>
+                  <h4 className="font-display text-xl font-black text-primary uppercase">{exp.role}</h4>
+                  <div className="flex items-center gap-2 text-on-surface-variant font-mono text-xs font-bold">
+                    <Target className="w-3.5 h-3.5 text-primary-container" />
+                    {exp.company}
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {exp.tags.map(tag => (
+                    <span key={tag} className="px-2 py-1 bg-surface-container-low border border-outline-variant/20 rounded font-mono text-[9px] text-outline uppercase font-bold">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {exp.achievements?.map((achievement, i) => (
+                  <div 
+                    key={i} 
+                    className="flex gap-3 p-3 bg-background/40 border border-outline-variant/10 rounded-lg group-hover:bg-primary-container/5 group-hover:border-primary-container/20 transition-colors"
+                  >
+                    <Zap className="w-4 h-4 text-primary-container shrink-0 mt-0.5" />
+                    <p className="font-sans text-[11px] text-on-surface-variant leading-tight">
+                      {achievement}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
     </div>

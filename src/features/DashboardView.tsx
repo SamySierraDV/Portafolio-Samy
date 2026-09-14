@@ -1,5 +1,15 @@
-import { ArrowRight, Trophy, TrendingUp, Cpu, Network, Award, ShieldAlert, BadgeInfo, Code, Briefcase, Calendar, Download } from 'lucide-react';
-import { developerProfile, workExperiences, projects } from '../data/portfolioData';
+import { 
+  ArrowRight, Trophy, TrendingUp, Cpu, Network, Award, ShieldAlert, 
+  BadgeInfo, Code, Briefcase, Calendar, Download, Coffee, FileCode, 
+  Palette, Leaf, ShieldCheck, Server, Layout, Atom, Hexagon, Database, 
+  Layers, GitBranch, Github, Terminal, LayoutGrid, Box, Users, 
+  RefreshCw, CreditCard, Brain 
+} from 'lucide-react';
+import { developerProfile, workExperiences, projects, skillsData } from '../data/portfolioData';
+
+// Importación de imágenes para la tarjeta de perfil
+import frontPhoto from '../../assets/images/foto-portafolio.webp';
+import backPhoto from '../../assets/images/foto-portafolio-espalda.webp';
 
 interface DashboardViewProps {
   onNavigateToTab: (tabId: string) => void;
@@ -15,6 +25,36 @@ export default function DashboardView({ onNavigateToTab, onDownloadDossier, acti
     { label: "BETA", value: "MAX", percentage: 100, active: true },
     { label: "CURRENT", value: "A+", percentage: 80, active: false }
   ];
+
+  // Helper para renderizar iconos dinámicamente según el nombre en la data
+  const renderSkillIcon = (iconName: string) => {
+    const iconProps = { className: "w-4 h-4" };
+    switch (iconName) {
+      case "Coffee": return <Coffee {...iconProps} />;
+      case "Code": return <Code {...iconProps} />;
+      case "Database": return <Database {...iconProps} />;
+      case "FileCode": return <FileCode {...iconProps} />;
+      case "Palette": return <Palette {...iconProps} />;
+      case "Leaf": return <Leaf {...iconProps} />;
+      case "ShieldCheck": return <ShieldCheck {...iconProps} />;
+      case "Server": return <Server {...iconProps} />;
+      case "Layout": return <Layout {...iconProps} />;
+      case "Atom": return <Atom {...iconProps} />;
+      case "Hexagon": return <Hexagon {...iconProps} />;
+      case "Layers": return <Layers {...iconProps} />;
+      case "GitBranch": return <GitBranch {...iconProps} />;
+      case "Github": return <Github {...iconProps} />;
+      case "Network": return <Network {...iconProps} />;
+      case "Terminal": return <Terminal {...iconProps} />;
+      case "LayoutGrid": return <LayoutGrid {...iconProps} />;
+      case "Box": return <Box {...iconProps} />;
+      case "Users": return <Users {...iconProps} />;
+      case "RefreshCw": return <RefreshCw {...iconProps} />;
+      case "CreditCard": return <CreditCard {...iconProps} />;
+      case "Brain": return <Brain {...iconProps} />;
+      default: return <Code {...iconProps} />;
+    }
+  };
 
   const techStats = [
     { title: "Core Language", value: "Java / Spring", level: "ADVANCED", grade: "Scout Grade: A+" },
@@ -50,44 +90,80 @@ export default function DashboardView({ onNavigateToTab, onDownloadDossier, acti
           {/* Interactive visual layout */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6">
             
-            {/* Player Headshot wrapper */}
-            <div className="md:col-span-5 relative group flex items-center justify-center bg-surface-container-low rounded-lg p-2 overflow-hidden aspect-[4/5] max-w-[280px] mx-auto md:mx-0">
-              {/* Transferable badge overlay */}
-              <span className="absolute top-4 left-4 z-10 px-3 py-1 text-[9px] font-mono font-bold uppercase rounded bg-primary-container text-background tracking-widest cursor-default">
-                TRANSFERIBLE
-              </span>
-
-              {/* Headshot image */}
-              <div className="w-full h-full rounded border border-outline-variant/20 overflow-hidden relative">
-                <img 
-                  alt={developerProfile.fullName} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                  src={developerProfile.profilePhoto} 
-                />
-                {/* Visual filter blending */}
-                <div className="absolute inset-0 bg-primary-container/5 mix-blend-overlay" />
-              </div>
-
-              {/* Potential ratings markers */}
-              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col items-start bg-background/80 backdrop-blur-sm p-3 rounded border border-outline-variant/20">
-                <span className="text-[9px] font-mono text-outline uppercase tracking-wider mb-1">Market Value</span>
-                <div className="font-display text-2xl font-black text-primary flex items-baseline gap-1">
-                  {developerProfile.marketValue} 
-                </div>
+            {/* FIFA Card Style Flip Wrapper */}
+            <div 
+              className="md:col-span-5 relative group [perspective:1000px] aspect-[4/5] max-w-[280px] mx-auto md:mx-0 cursor-pointer"
+              role="img"
+              aria-label={`Ficha técnica de ${developerProfile.fullName}. Pase el mouse para ver el dorso.`}
+            >
+              {/* The Inner Card that actually rotates */}
+              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 
-                <div className="flex gap-1 mt-1">
-                  <span className="text-[8px] font-mono text-on-surface-variant mr-1">Potential:</span>
-                  {[...Array(5)].map((_, i) => (
-                    <span 
-                      key={i} 
-                      className={`w-1.5 h-1.5 rounded-full ${
-                        i < developerProfile.potential 
-                          ? 'bg-primary-container shadow-[0_0_6px_#00f0ff]' 
-                          : 'bg-surface-container-highest'
-                      }`} 
+                {/* FRONT FACE */}
+                <div className="absolute inset-0 [backface-visibility:hidden] bg-surface-container-low rounded-lg p-2 border border-outline-variant/20 shadow-xl">
+                  {/* Transferable badge overlay */}
+                  <span className="absolute top-4 left-4 z-20 px-3 py-1 text-[9px] font-mono font-bold uppercase rounded bg-primary-container text-background tracking-widest cursor-default">
+                    TRANSFERIBLE
+                  </span>
+
+                  {/* Headshot image front */}
+                  <div className="w-full h-full rounded border border-outline-variant/20 overflow-hidden relative">
+                    <img 
+                      alt={`${developerProfile.fullName} - Front View`} 
+                      className="w-full h-full object-cover" 
+                      src={frontPhoto} 
                     />
-                  ))}
+                    {/* Visual filter blending */}
+                    <div className="absolute inset-0 bg-primary-container/5 mix-blend-overlay" />
+                  </div>
+
+                  {/* Potential ratings markers (on front) */}
+                  <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-col items-start bg-background/80 backdrop-blur-sm p-3 rounded border border-outline-variant/20">
+                    <span className="text-[9px] font-mono text-outline uppercase tracking-wider mb-1">Market Value</span>
+                    <div className="font-display text-2xl font-black text-primary flex items-baseline gap-1">
+                      {developerProfile.marketValue} 
+                    </div>
+                    
+                    <div className="flex gap-1 mt-1">
+                      <span className="text-[8px] font-mono text-on-surface-variant mr-1">Potential:</span>
+                      {[...Array(5)].map((_, i) => (
+                        <span 
+                          key={i} 
+                          className={`w-1.5 h-1.5 rounded-full ${
+                            i < developerProfile.potential 
+                              ? 'bg-primary-container shadow-[0_0_6px_#00f0ff]' 
+                              : 'bg-surface-container-highest'
+                          }`} 
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
+
+                {/* BACK FACE */}
+                <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-surface-container-low rounded-lg p-2 border border-primary-container/30 shadow-2xl overflow-hidden">
+                  <div className="w-full h-full rounded overflow-hidden relative">
+                    <img 
+                      alt={`${developerProfile.fullName} - Back View`} 
+                      className="w-full h-full object-cover grayscale brightness-75 opacity-90" 
+                      src={backPhoto} 
+                    />
+                    {/* Back side aesthetics */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                      <div className="w-16 h-16 border border-primary-container/30 rounded-full flex items-center justify-center mb-2 bg-primary-container/5">
+                        <Cpu className="w-8 h-8 text-primary-container animate-pulse" />
+                      </div>
+                      <span className="font-display text-[10px] font-bold text-primary tracking-[0.2em] uppercase">Tech Specifications</span>
+                      <div className="mt-2 flex gap-1.5">
+                        <span className="w-1 h-1 bg-primary-container rounded-full"></span>
+                        <span className="w-1 h-1 bg-primary-container rounded-full"></span>
+                        <span className="w-1 h-1 bg-primary-container rounded-full"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -207,6 +283,52 @@ export default function DashboardView({ onNavigateToTab, onDownloadDossier, acti
         <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
           The candidate is positioned as a **Microservices Architect** driving tactical API Integration, perimeter security, and database caching patterns. Click to deploy dynamic scouting filters.
         </p>
+      </div>
+
+      {/* Featured Skills Section */}
+      <div className="bg-surface-container border border-outline-variant/30 rounded-xl p-6 shadow-lg text-left">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-1.5 h-5 bg-primary-container rounded" />
+          <h3 className="font-display text-base font-bold text-primary tracking-wider uppercase">HABILIDADES DESTACADAS</h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          {Object.entries(skillsData).map(([category, items]) => (
+            <div key={category} className="space-y-4">
+              <h4 className="font-mono text-[10px] text-primary-container/70 uppercase tracking-widest border-b border-outline-variant/20 pb-2">
+                {category === 'lenguajes' ? 'Lenguajes' : 
+                 category === 'frameworks' ? 'Frameworks' : 
+                 category === 'databases' ? 'Bases de Datos' : 
+                 category === 'tools' ? 'Herramientas' : 
+                 category === 'methodologies' ? 'Metodologías' : category}
+              </h4>
+              <div className="flex flex-col gap-3">
+                {(items as any[]).map((item) => (
+                  <div
+                    key={item.name} 
+                    className="relative flex items-center gap-3 text-on-surface-variant hover:text-primary-container transition-all group cursor-default"
+                  >
+                    <span className="p-1.5 bg-surface-container-low rounded border border-outline-variant/10 group-hover:border-primary-container/30 group-hover:bg-primary-container/5 transition-all text-outline group-hover:text-primary-container">
+                      {renderSkillIcon(item.icon)}
+                    </span>
+                    <span className="font-mono text-[11px] font-bold uppercase tracking-tight">
+                      {item.name}
+                    </span>
+
+                    {/* Tooltip Detallado */}
+                    <div className="absolute bottom-full left-0 mb-2 w-max max-w-[200px] px-3 py-1.5 bg-background border border-primary-container/40 rounded shadow-[0_0_15px_rgba(0,240,255,0.2)] opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 pointer-events-none transition-all duration-200 z-50">
+                      <span className="block font-mono text-[8px] text-primary-container uppercase tracking-widest mb-0.5 font-black">Scout Analysis:</span>
+                      <p className="font-mono text-[10px] text-on-surface font-bold leading-tight">
+                        {item.detail}
+                      </p>
+                      <div className="absolute -bottom-1 left-4 w-2 h-2 bg-background border-r border-b border-primary-container/40 rotate-45" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Grid: TECHNICAL STATS shortlist & employment timeline */}

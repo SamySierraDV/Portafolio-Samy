@@ -1,14 +1,25 @@
 import { Project, AcademicCredential, WorkExperience, Skill, TacticalNode } from '../types';
 
+import InvenarioPhoto from '../../assets/images/foto-inventario.webp';
+import PayrollPhoto from '../../assets/images/foto-payroll.webp';
+import MicroserviciosPhoto from '../../assets/images/foto-microservicios.webp';
+import LiteraluraPhoto from '../../assets/images/foto-literalura.webp';
+import ForoPhoto from '../../assets/images/foto-foro.webp';
+import ConversorPhoto from '../../assets/images/foto-conversor.webp';
+import AmigoPhoto from '../../assets/images/foto-amigo.webp';
+import BatatabitPhoto from '../../assets/images/foto-batatabit.webp';
+import LogicorePhoto from '../../assets/images/foto-logicore.webp';
+import { i } from 'motion/react-client';
+
 export const developerProfile = {
-  fullName: "Samy Luis Díaz Marulanda",
+  fullName: "Samy Sierra Suárez",
   displayShortName: "S. Sierra Suárez", // Visual brand matching the screens
   titleName: "S. SIERRA SUÁREZ // PROSPECT ID",
   role: "Backend Developer // Architect",
   id: "#7000-M",
   marketValue: "70.0M €",
   potential: 4, // 4 out of 5 filled dots
-  birthplace: "Barrancas / Bogotá, COL",
+  birthplace: "Bogotá, COL",
   experienceYears: "3+ YRS",
   currentClub: "Granlsammy S.A.S",
   signedUntil: "30/07/2025",
@@ -21,139 +32,185 @@ export const developerProfile = {
 
 export const workExperiences: WorkExperience[] = [
   {
-    id: "exp1",
-    period: "PRESENT – 2024",
-    company: "Granlsammy S.A.S",
-    role: "Backend Developer // Architect",
-    description: "Led microservices migration achieving 40% reduction in latency. Architected scalable event-driven systems.",
-    tags: ["KAFKA", "DOCKER"],
+    id: "exp-granisammy",
+    period: "AGO. 2025 – ACTUALIDAD",
+    company: "Granlsammy Acabados S.A.S",
+    role: "Software Developer",
+    description: "Lidero la automatización de infraestructura crítica y optimización de arquitectura backend.",
+    achievements: [
+      "Desarrollé un sistema de nómina con Spring Boot y Vaadin, reduciendo el procesamiento manual en +60%.",
+      "Implementé arquitectura SOLID, mejorando la mantenibilidad en un 35%.",
+      "Diseñé +15 endpoints REST con tiempos de respuesta < 2s.",
+      "Automaticé cálculos de horas extra y deducciones, reduciendo errores en -90%.",
+      "Generé reportes automatizados para +100 empleados (de horas a minutos).",
+      "Incrementé la eficiencia de RR. HH. en +40% mediante digitalización.",
+      "Implementé control de acceso robusto para protección de datos sensibles.",
+      "Optimización de consultas SQL mejorando el rendimiento en +30%."
+    ],
+    tags: ["SPRING BOOT", "VAADIN", "SOLID", "SQL OPTIMIZATION"],
     isCurrent: true
   },
   {
-    id: "exp2",
-    period: "2022 – 2024",
-    company: "Licisoluciones BIC",
-    role: "Full Stack Developer",
-    description: "Implemented legacy system modernization and high-performance API endpoints for fintech partners.",
-    tags: ["JAVA", "REST APIS"]
+    id: "exp-licisoluciones",
+    period: "ENE. 2024 – JUL. 2025",
+    company: "Licisoluciones S.A.S BIC",
+    role: "Java Software Engineer",
+    description: "Desarrollo de ecosistemas digitales inteligentes para gestión comercial y financiera.",
+    achievements: [
+      "Desarrollé plataforma web/móvil para gestión de restaurantes (reservas, pagos, tracking).",
+      "Implementé +10 funcionalidades críticas (pedidos QR, tracking en vivo, panel admin).",
+      "Documenté +20 requerimientos funcionales asegurando cobertura total del sistema.",
+      "Automatización de pedidos reduciendo tiempos de atención en +50%.",
+      "Integración de pagos digitales seguros reduciendo errores en +80%.",
+      "Sistema de recomendaciones con IA, aumentando potencial de ventas en +25%.",
+      "Construí panel administrativo con métricas de ventas para toma de decisiones."
+    ],
+    tags: ["JAVA", "IA", "QR PAYMENTS", "API DESIGN"]
+  },
+  {
+    id: "exp-freelance",
+    period: "AGO. 2022 – ENE. 2023",
+    company: "Self-Employed",
+    role: "Desarrollador Freelance",
+    description: "Construcción de soluciones a medida con enfoque en performance y escalabilidad.",
+    achievements: [
+      "Construcción de plataforma de criptomonedas con React, Node.js y MySQL.",
+      "Incrementé la retención de usuarios en un 30% mediante notificaciones en tiempo real.",
+      "Desarrollo y mantenimiento de apps web/móviles según requerimientos.",
+      "Ejecución de pruebas unitarias asegurando calidad sin comprometer el rendimiento."
+    ],
+    tags: ["REACT", "NODE.JS", "MYSQL", "CRYPTO"]
   }
 ];
 
 export const projects: Project[] = [
+  // Projects with links first (order inverted relative to original)
   {
-    id: "project-nomina",
-    title: "Sistema Nomina Empresarial",
+    id: "project-logicore",
+    title: "ORGANIZACIÓN INTELIGENTE DEL CONOCIMIENTO (LOGICORE / TECHMIND)",
     rating: "A+",
-    matchRating: 9.6,
-    description: "Enterprise-grade payroll orchestration engine designed for high-concurrency environments. Implements reactive data streams and modular micro-frontend architecture.",
-    longDescription: "A fully resilient, clustered system designed to sustain massive synchronous calculator loads during month-end payroll distributions. Includes self-healing orchestration to prevent node crash during unexpected queueing surges.",
-    technologies: ["Spring Boot", "Vaadin", "MongoDB", "Docker", "Sleuth"],
-    complexity: "PRO",
-    calcReduction: "80%",
-    status: "LIVE",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA9toLULnObc7RJLIOCc_uSdqdoJ_8lm2W7f_qptVeoW238AS7tdu2iEcwzxC1Xb7OvM1qW7Q28ihX0EzdHq25f88R5_luSdJb4mZc8KbgjZhk32xdVSAPEhUw2Dlkf-EBPL9KinOTL5Vy_Ub0uQPD1ilq18Loo1vsGR6ZV5ldRq-O3hNcg2ultr2m4Pu00HZreUAkh1nJMjS5E6imkatwNLUHs1ji6HuVE_uuqtlxwt5lgEvccjbGzmcDtkr3jo3Jq6uUJ0xaLqY4",
-    stats: {
-      latencyReduction: 80,
-      uptime: "99.98%",
-      throughput: "120k req/s"
-    },
-    scoutNotes: "Excellent utilization of Vaadin as a high-fidelity control panel paired with the ultra-low read latency of MongoDB clusters. High availability metrics recorded."
-  },
-  {
-    id: "project-granlsammy",
-    title: "Granlsammy Core Ledger",
-    rating: "A",
-    matchRating: 9.2,
-    description: "High-throughput financial ledger system migration and performance optimization for enterprise-scale transaction processing.",
-    longDescription: "Execution was focused on decoupling the legacy monolith into an event-driven architecture. The core challenge involved synchronizing ledger states across distributed nodes without compromising ACID properties.",
-    technologies: ["Java", "Spring Boot", "Kafka", "Docker"],
-    complexity: "CORE",
-    calcReduction: "40%",
-    status: "STABLE",
-    syncTime: "15ms",
-    stats: {
-      latencyReduction: 40,
-      uptime: "99.99%",
-      throughput: "50k req/s"
-    },
-    scoutNotes: "The implementation of a custom Kafka producer interceptor allowed for real-time observability of throughput bottlenecks, leading to the identification of a significant serialization overhead. Strategic deployment of Docker Swarm ensured high availability during peak transaction windows. Final 'Match' analysis confirms all mission-critical KPIs were exceeded by 15% on average."
-  },
-  {
-    id: "project-literalura",
-    title: "LiterAlura",
-    rating: "A",
-    matchRating: 8.9,
-    description: "Advanced bibliographic search engine utilizing the Gutendex API for real-time literary data extraction.",
-    longDescription: "A Java 17 service caching query profiles in structured schemas, avoiding external rate constraints while serving bibliographic indices rapidly. Interfaced seamlessly with custom parser layers.",
-    technologies: ["Java 17", "PostgreSQL", "Jackson API"],
-    complexity: "MEDIUM",
-    calcReduction: "50%",
-    status: "LIVE",
-    stats: {
-      latencyReduction: 50,
-      uptime: "99.95%",
-      throughput: "8k req/s"
-    },
-    scoutNotes: "Demonstrated refined skills in processing raw unstructured dynamic JSON formats streamingly using local Jackson parsers."
-  },
-  {
-    id: "project-foro",
-    title: "Foro Alura",
-    rating: "B+",
-    matchRating: 8.5,
-    description: "High-security REST API for collaborative technical discussions, featuring encrypted authentication layers.",
-    longDescription: "Collaborative portal backend featuring secure authentication protocols, custom permission routers, audit logging on threads, and robust database pooling triggers.",
-    technologies: ["Java", "Spring Security", "JWT", "PostgreSQL"],
-    complexity: "CORE",
-    calcReduction: "35%",
-    status: "ENCRYPTED ENVIRONMENT",
-    secureProtocol: "JWT",
-    extraBadge: "Encrypted Environment",
-    stats: {
-      latencyReduction: 35,
-      uptime: "99.90%",
-      throughput: "12k req/s"
-    },
-    scoutNotes: "High-security REST API adhering rigorously to OAuth standards. Tested resilience against standard threat profiles."
-  },
-  {
-    id: "project-conversor",
-    title: "Conversor Monedas",
-    rating: "A",
-    matchRating: 8.7,
-    description: "Real-time currency arbitrage engine using HttpClient for high-frequency exchange rate synchronization.",
-    longDescription: "High frequency rate puller pulling updates dynamically and using light thread pooling schemas to evaluate arbitrage positions on key quote pairings.",
-    technologies: ["Java 11", "HttpClient", "Gson Parser"],
-    complexity: "LIGHT",
-    calcReduction: "20%",
-    status: "LIVE",
-    syncTime: "120ms",
-    extraBadge: "USD / EUR Matrix",
-    stats: {
-      latencyReduction: 20,
-      uptime: "99.99%",
-      throughput: "30k req/s"
-    },
-    scoutNotes: "Remarkable latency control (120ms) directly matching high-speed remote API endpoints."
+    matchRating: 98,
+    description: "Plataforma SaaS que transforma documentación técnica dispersa en conocimiento estructurado mediante ML, grafos y RAG.",
+    longDescription: "Autoclasificación con TF-IDF, grafos de conocimiento interactivos y un agente IA conversacional (RAG). Integración Java/Spring Boot y microservicios Python para procesamiento de ML.",
+    technologies: ["Java", "Spring Boot", "Vaadin", "Python", "FastAPI", "Machine Learning", "Supabase", "PostgreSQL"],
+    complexity: "ELITE",
+    calcReduction: "98%",
+    status: "FINALISTA HACKATHON",
+    image: LogicorePhoto,
+    demoUrl: "https://logicore-app.duckdns.org/",
+    githubUrl: "https://github.com/No-Country-simulation/-TechMind-Organizacion-Inteligente-del-Conocimiento-Tecnico-Team-13/tree/main",
+    scoutNotes: "Video demo: https://youtu.be/iZzVtcGQqBE"
   },
   {
     id: "project-batatabit",
     title: "Batatabit",
     rating: "A",
-    matchRating: 8.8,
-    description: "Mobile-first cryptocurrency exchange landing page optimized for low-latency visual performance.",
-    longDescription: "An incredibly responsive web portal presenting crypto rates with smooth layouts, SVG vectors, and immediate state updates across multiple mobile dimensions.",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    matchRating: 87,
+    description: "Landing page de exchange de criptomonedas optimizada para dispositivos móviles (Mobile First).",
+    longDescription: "Implementación de diseño responsivo con variables CSS nativas y HTML semántico. Desplegado en GitHub Pages como parte del catálogo de interfaces.",
+    technologies: ["HTML5", "CSS3", "JavaScript"],
     complexity: "LIGHT",
     calcReduction: "60%",
-    status: "RESPONSIVE MATRIX",
-    extraBadge: "Responsive Matrix",
-    stats: {
-      latencyReduction: 60,
-      uptime: "100%",
-      throughput: "5k req/s"
-    },
-    scoutNotes: "Excellent demonstration of frontend optimization techniques, keeping visual rendering metrics outstanding under simulated high latency profiles."
+    status: "OPERACIONAL",
+    image: BatatabitPhoto,
+    demoUrl: "https://samysierradv.github.io/BatatabitProyect/"
+  },
+  {
+    id: "project-conversor",
+    title: "Conversor Monedas",
+    rating: "A",
+    matchRating: 88,
+    description: "Motor de arbitraje de divisas en tiempo real para conversiones USD ↔ ARS, BRL, COP.",
+    longDescription: "Consumo de API externo con HttpClient de Java 17 y exportación de historial de transacciones a formato JSON. Reto Oracle Next Education.",
+    technologies: ["Java 17", "HttpClient", "JSON"],
+    complexity: "LIGHT",
+    calcReduction: "20%",
+    status: "OPERACIONAL",
+    image: ConversorPhoto,
+    githubUrl: "https://github.com/SamySierraDV/AluraLatam-Conversor-de-monedas"
+  },
+  {
+    id: "project-foro",
+    title: "Foro Alura",
+    rating: "B+",
+    matchRating: 90,
+    description: "API REST para discusiones técnicas con capas de seguridad cifrada y autenticación JWT.",
+    longDescription: "CRUD completo de temas con contraseñas BCrypt, migraciones automáticas con Flyway y políticas de acceso granulares para el Backend Challenge ONE.",
+    technologies: ["Spring Boot", "Spring Security", "JWT", "MySQL"],
+    complexity: "CORE",
+    calcReduction: "35%",
+    status: "ESTABLE",
+    image: ForoPhoto,
+    githubUrl: "https://github.com/SamySierraDV/AluraLatam-ForoHub-Challenge-Alura"
+  },
+  {
+    id: "project-literalura",
+    title: "LiterAlura",
+    rating: "A",
+    matchRating: 92,
+    description: "Catálogo interactivo de libros que consume la API Gutendex en tiempo real con persistencia avanzada.",
+    longDescription: "Desafío Oracle Next Education. Incluye filtrado por idioma, estadísticas de colección y listado de autores únicos por periodo histórico.",
+    technologies: ["Java 17", "Spring Boot", "PostgreSQL"],
+    complexity: "MEDIUM",
+    calcReduction: "50%",
+    status: "OPERACIONAL",
+    image: LiteraluraPhoto,
+    githubUrl: "https://github.com/SamySierraDV/AluraLatam-Litealura"
+  },
+  {
+    id: "project-inventarios",
+    title: "Gestión de Inventarios",
+    rating: "PRO",
+    matchRating: 98,
+    description: "Sistema integral desarrollado para la optimización y control de existencias bajo arquitectura MVC y DAO.",
+    longDescription: "Control total sobre productos, categorías y proveedores con seguimiento automatizado de entradas/salidas. Incluye monitoreo avanzado con Spring Boot Actuator.",
+    technologies: ["Vaadin", "MongoDB", "Spring Boot"],
+    complexity: "ELITE",
+    calcReduction: "90%",
+    status: "OPERACIONAL",
+    image: InvenarioPhoto,
+    demoUrl: "https://youtu.be/Ij4cdlLbVZs"
+  },
+
+  // Remaining projects without external links (order inverted)
+  {
+    id: "project-amigo-secreto",
+    title: "Amigo Secreto",
+    rating: "B",
+    matchRating: 85,
+    description: "Aplicación de sorteos grupales con animaciones suaves mediante Canvas 2D y Vanilla JS.",
+    longDescription: "Sistema responsivo sin dependencias externas, con validaciones dinámicas y lógica de sorteo optimizada para el navegador.",
+    technologies: ["JavaScript", "Canvas 2D", "CSS3"],
+    complexity: "LIGHT",
+    calcReduction: "10%",
+    status: "ESTABLE",
+    image: AmigoPhoto
+  },
+  {
+    id: "project-microservicios",
+    title: "E-Commerce Microservices",
+    rating: "A",
+    matchRating: 94,
+    description: "Ecosistema de microservicios para comercio electrónico bajo patrón MVC puro y alta cobertura de pruebas.",
+    longDescription: "Integración de servicios distribuidos con Laravel y Python, logrando una cobertura de código del 95% para asegurar estabilidad en producción.",
+    technologies: ["Laravel", "Python", "Docker"],
+    complexity: "PRO",
+    calcReduction: "75%",
+    status: "ESTABLE",
+    image: MicroserviciosPhoto
+  },
+  {
+    id: "project-nomina",
+    title: "Nómina Empresarial",
+    rating: "A+",
+    matchRating: 96,
+    description: "Automatización de salarios y devengados para más de 100 empleados mensuales con reducción de carga operativa.",
+    longDescription: "Implementación de motores de cálculo reactivos con exportación de informes en PDF/Excel y seguridad perimetral en la capa API.",
+    technologies: ["Spring Boot", "Vaadin", "MongoDB"],
+    complexity: "PRO",
+    calcReduction: "80%",
+    status: "OPERACIONAL",
+    image: PayrollPhoto
   }
 ];
 
@@ -187,6 +244,43 @@ export const academicCredentials: AcademicCredential[] = [
     durationVolume: "326h TOTAL VOLUME"
   }
 ];
+
+export const skillsData = {
+  lenguajes: [
+    { name: "Java", icon: "Coffee", detail: "4+ Años // Senior" },
+    { name: "JavaScript", icon: "Code", detail: "3+ Años // Avanzado" },
+    { name: "SQL", icon: "Database", detail: "3+ Años // Experto" },
+    { name: "HTML5", icon: "FileCode", detail: "5+ Años // Dominio Total" },
+    { name: "CSS3", icon: "Palette", detail: "5+ Años // Dominio Total" }
+  ],
+  frameworks: [
+    { name: "Spring Boot", icon: "Leaf", detail: "3+ Años // Core Stack" },
+    { name: "Spring Security", icon: "ShieldCheck", detail: "2+ Años // Security Lead" },
+    { name: "Spring Data", icon: "Server", detail: "3+ Años // Persistence Master" },
+    { name: "Vaadin", icon: "Layout", detail: "2+ Años // UI Orchestration" },
+    { name: "React", icon: "Atom", detail: "2+ Años // Frontend Flow" },
+    { name: "Node.js", icon: "Hexagon", detail: "2+ Años // Backend Services" }
+  ],
+  databases: [
+    { name: "MongoDB", icon: "Database", detail: "3+ Años // NoSQL Guru" },
+    { name: "MySQL", icon: "Database", detail: "3+ Años // Relational Master" },
+    { name: "JPA/Hibernate", icon: "Layers", detail: "3+ Años // ORM Expert" }
+  ],
+  tools: [
+    { name: "Git", icon: "GitBranch", detail: "4+ Años // Version Control" },
+    { name: "GitHub", icon: "Github", detail: "4+ Años // CI/CD Specialist" },
+    { name: "Microservicios", icon: "Network", detail: "2+ Años // Distributed Arch" },
+    { name: "REST API", icon: "Terminal", detail: "3+ Años // High Throughput" },
+    { name: "MVC", icon: "LayoutGrid", detail: "3+ Años // Design Pattern" },
+    { name: "OOP", icon: "Box", detail: "4+ Años // Core Fundamentals" }
+  ],
+  methodologies: [
+    { name: "SCRUM", icon: "Users", detail: "Sprints // Agile Execution" },
+    { name: "Desarrollo Ágil", icon: "RefreshCw", detail: "Rapid Iteration" },
+    { name: "Pasarelas de pago", icon: "CreditCard", detail: "Stripe / PayPal Integration" },
+    { name: "Integración de IA", icon: "Brain", detail: "OpenAI / LLM Orchestration" }
+  ]
+};
 
 export const coreLanguages = ["Java", "SQL", "TypeScript", "Python"];
 export const frameworks = ["Spring Boot", "Vaadin", "JPA/Hibernate"];

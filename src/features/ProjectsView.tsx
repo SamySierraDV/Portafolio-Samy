@@ -1,246 +1,126 @@
-import { useState } from 'react';
+import React from 'react';
 import { 
-  Library, 
-  MessageSquare, 
-  Currency, 
-  Coins, 
-  Sparkles, 
-  Eye, 
-  Cpu, 
-  Network, 
-  Layers, 
-  Download,
-  Terminal,
-  Database,
-  Container,
-  FolderDot
+  Github, 
+  ExternalLink, 
+  LayoutGrid, 
+  Info
 } from 'lucide-react';
 import { projects } from '../data/portfolioData';
 import { Project } from '../types';
-import ProjectDossierModal from '../components/ProjectDossierModal';
 
 interface ProjectsViewProps {
-  onProjectSelect: (proj: Project) => void;
+  onProjectSelect: (project: Project) => void;
   onDownloadDossier: () => void;
 }
 
-export default function ProjectsView({ onProjectSelect, onDownloadDossier }: ProjectsViewProps) {
-  
-  // Custom icons for standard minor project cards
-  const getSubProjectIcon = (projectId: string) => {
-    switch (projectId) {
-      case 'project-literalura':
-        return <Library className="w-5 h-5 text-on-surface-variant group-hover:scale-110 transition-transform" />;
-      case 'project-foro':
-        return <MessageSquare className="w-5 h-5 text-on-surface-variant group-hover:scale-110 transition-transform" />;
-      case 'project-conversor':
-        return <Coins className="w-5 h-5 text-on-surface-variant group-hover:rotate-12 transition-transform" fill="none" />;
-      case 'project-batatabit':
-        return <svg className="w-5 h-5 text-on-surface-variant group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
-      default:
-        return <FolderDot className="w-5 h-5 text-on-surface-variant" />;
-    }
-  };
-
-  // Main system payroll system is our star featured project card (NOMINA EMPRESARIAL)
-  const featuredProject = projects.find(p => p.id === 'project-nomina') || projects[0];
-  const minorProjects = projects.filter(p => p.id !== 'project-nomina');
-
+export default function ProjectsView({ onProjectSelect }: ProjectsViewProps) {
   return (
-    <div className="space-y-12 animate-fade-in text-left">
-      
+    <div className="space-y-12 animate-fade-in">
       {/* Page Header */}
-      <div className="border-l-4 border-primary pl-6">
-        <h2 className="font-display text-2xl md:text-5xl font-black text-primary mb-2 uppercase">Technical Scouting Report</h2>
-        <p className="font-mono text-[10px] md:text-xs text-on-surface-variant tracking-widest uppercase">Database: Proyectos Destacados // Global Assets Catalog</p>
-      </div>
+      <header className="border-l-4 border-primary-container pl-6 text-left">
+        <span className="font-mono text-[10px] md:text-xs text-primary-container tracking-widest uppercase">Performance Reports</span>
+        <h2 className="font-display text-2xl md:text-5xl font-black text-primary mt-1 uppercase">Project Repository</h2>
+      </header>
 
-      {/* Bento Grid: Gallery of Tactical Assets */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-        
-        {/* Card 1: Star featured project layout */}
-        {featuredProject && (
-          <div 
-            onClick={() => onProjectSelect(featuredProject)}
-            className="md:col-span-8 group relative overflow-hidden bg-surface-container border border-primary-container/20 rounded-xl p-6 transition-all hover:border-primary-container/50 glow-hover cursor-pointer"
+      {/* Grid: 3-column performance reports */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, index) => (
+          <article 
+            key={project.id}
+            className="group flex flex-col bg-surface-container border border-outline-variant/30 rounded-xl overflow-hidden hover:border-primary-container/40 transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.05)]"
           >
-            {/* Pulsing visual scanline */}
-            <div className="absolute inset-0 pointer-events-none scanline opacity-5" />
-
-            <div className="flex justify-between items-start mb-6 border-b border-outline-variant/25 pb-4">
-              <div className="flex items-center gap-3">
-                <Sparkles className="w-5 h-5 text-primary-container animate-pulse" />
-                <h3 className="font-display text-lg md:text-2xl font-bold text-primary uppercase">
-                  {featuredProject.title}
-                </h3>
-              </div>
-              <div className="bg-primary-container/10 border border-primary-container px-3 py-1 rounded text-primary-container font-mono text-xs font-bold glow-cyan-text">
-                {featuredProject.rating}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            {/* Encabezado Visual con Badge */}
+            <div className="relative h-48 overflow-hidden bg-surface-container-low/50">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                className={`w-full h-full object-contain transition-all duration-500 group-hover:scale-110 ${
+                  index === 0 ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
+                }`}
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
               
-              {/* Left Specifications stats side */}
-              <div className="flex flex-col justify-between space-y-4">
-                <div className="flex flex-wrap gap-1.5">
-                  {featuredProject.technologies.slice(0, 3).map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="px-2 py-0.5 bg-surface-container-high border border-outline-variant/30 text-[9px] font-mono rounded uppercase text-on-surface-variant font-bold"
+              {/* Status Badge */}
+              <div className="absolute top-4 right-4">
+                <span className="px-2 py-0.5 bg-background/80 backdrop-blur-sm border border-primary-container/30 text-primary-container font-mono text-[9px] font-bold rounded uppercase">
+                  {project.status}
+                </span>
+              </div>
+            </div>
+
+            {/* Cuerpo de la Tarjeta */}
+            <div className="p-5 flex-1 flex flex-col text-left relative">
+              <h3 className="font-display text-lg font-bold text-primary mb-3 uppercase tracking-tight">{project.title}</h3>
+              
+              <div className="mb-4">
+                <span className="block font-mono text-[9px] text-primary-container/70 uppercase tracking-widest mb-1">Objetivo de la Misión</span>
+                <p className="font-sans text-xs text-on-surface-variant leading-relaxed line-clamp-3">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Tecnologías como labels compactos */}
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {project.technologies.map(tech => (
+                  <span key={tech} className="bg-surface-container-low px-1.5 py-0.5 rounded border border-outline-variant/20 font-mono text-[8px] text-outline-variant uppercase">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Valor Táctico - Esquina inferior derecha */}
+              <div className="absolute bottom-20 right-5 text-right">
+                <span className="block font-mono text-[8px] text-outline uppercase">Valor Táctico</span>
+                <span className="font-display text-2xl font-black text-primary-container glow-cyan-text">
+                  {project.matchRating}%
+                </span>
+              </div>
+
+              {/* Botones de Acción */}
+              <footer className="mt-auto pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+                <div className="flex gap-2">
+                  {project.demoUrl ? (
+                    <a 
+                      href={project.demoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="px-3 py-1.5 bg-primary-container text-background font-mono text-[10px] font-extrabold rounded hover:shadow-[0_0_10px_rgba(0,240,255,0.4)] transition-all uppercase"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      Ver Demostración
+                    </a>
+                  ) : (
+                    <button 
+                      disabled 
+                      className="px-3 py-1.5 bg-surface-container-highest text-on-surface-variant font-mono text-[10px] font-extrabold rounded cursor-not-allowed uppercase"
+                    >
+                      Preview N/A
+                    </button>
+                  )}
+                  {project.githubUrl && (
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-1.5 border border-outline-variant/30 text-on-surface-variant hover:text-primary-container transition-colors rounded"
+                      title="GitHub Repository"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
                 
-                <p className="font-sans text-xs md:text-sm text-on-surface-variant leading-relaxed">
-                  {featuredProject.description}
-                </p>
-                
-                <div className="flex items-center gap-6 pt-4 border-t border-outline-variant/10">
-                  <div className="flex flex-col">
-                    <span className="text-primary-container font-mono text-lg font-extrabold">{featuredProject.calcReduction}</span>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-outline opacity-60">Calc Reduction</span>
-                  </div>
-                  <div className="h-8 w-[1px] bg-outline-variant/30 animate-pulse" />
-                  <div className="flex flex-col">
-                    <span className="text-primary-container font-mono text-lg font-extrabold">{featuredProject.complexity}</span>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-outline opacity-60">Complexity</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Mock visualization panel */}
-              <div className="relative h-44 md:h-full min-h-[160px] rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container-low flex items-center justify-center">
-                {featuredProject.image ? (
-                  <img 
-                    alt="Payroll System Dashboard" 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 group-hover:scale-105 transition-all duration-500" 
-                    src={featuredProject.image} 
-                  />
-                ) : (
-                  <div className="text-center p-4">
-                    <Layers className="w-10 h-10 text-primary-container/30 mb-2 mx-auto animate-pulse" />
-                    <span className="font-mono text-[9px] text-outline">VISUALIZATION PIPELINE</span>
-                  </div>
-                )}
-                {/* Decorative blueprint matrix overlay */}
-                <div className="absolute inset-0 bg-primary-container/10 mix-blend-overlay" />
-              </div>
-
+                <button 
+                  onClick={() => onProjectSelect(project)}
+                  className="flex items-center gap-1 font-mono text-[9px] font-bold text-outline-variant hover:text-primary transition-all uppercase tracking-tighter"
+                >
+                  Ver más <Info className="w-3 h-3" />
+                </button>
+              </footer>
             </div>
-          </div>
-        )}
-
-        {/* Dynamic Minor Project cards rendering loop */}
-        {minorProjects.map((proj) => {
-          const isLeterAlura = proj.id === 'project-literalura';
-          const isForo = proj.id === 'project-foro';
-          const isConversor = proj.id === 'project-conversor';
-          const isBatata = proj.id === 'project-batatabit';
-
-          return (
-            <div 
-              key={proj.id}
-              onClick={() => onProjectSelect(proj)}
-              className="md:col-span-4 bg-surface-container border border-outline-variant/20 rounded-xl p-5 hover:border-primary-container/45 transition-all glow-hover cursor-pointer flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex justify-between items-center mb-5 border-b border-outline-variant/10 pb-3">
-                  {getSubProjectIcon(proj.id)}
-                  <div className="bg-surface-container-high px-2 py-0.5 rounded border border-outline-variant/30 text-on-surface font-mono text-[10px] font-bold">
-                    {proj.rating}
-                  </div>
-                </div>
-
-                <h3 className="font-display text-base font-extrabold text-primary uppercase mb-2">
-                  {proj.title}
-                </h3>
-
-                {/* Sub-label protocols details */}
-                {proj.secureProtocol && (
-                  <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-2 py-1 rounded inline-block text-[9px] font-mono uppercase mb-4 font-bold tracking-tighter">
-                    Secure Protocol: {proj.secureProtocol}
-                  </div>
-                )}
-                
-                {proj.status === 'RESPONSIVE MATRIX' && (
-                  <div className="border border-primary-container text-primary-container px-2 py-0.5 rounded inline-block text-[9px] font-mono uppercase mb-4 font-extrabold tracking-wider">
-                    {proj.status}
-                  </div>
-                )}
-
-                <p className="font-sans text-xs text-on-surface-variant leading-relaxed mb-6">
-                  {proj.description}
-                </p>
-              </div>
-
-              {/* Bottom detail status specifications bar */}
-              <div className="border-t border-outline-variant/15 pt-3">
-                {isLeterAlura && (
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center text-[9px] font-mono uppercase">
-                      <span className="text-outline">Java 17 + PostgreSQL</span>
-                      <span className="text-primary-container">LIVE</span>
-                    </div>
-                    <div className="w-full h-1 bg-surface-container-high rounded-full overflow-hidden text-left">
-                      <div className="h-full bg-primary-container w-[92%]" />
-                    </div>
-                  </div>
-                )}
-
-                {isForo && (
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse" />
-                    <span className="text-[10px] font-mono uppercase text-primary-container tracking-wider font-bold">
-                      Encrypted Environment
-                    </span>
-                  </div>
-                )}
-
-                {isConversor && (
-                  <div className="flex items-center justify-between">
-                    <div className="flex -space-x-1.5">
-                      <div className="w-5 h-5 rounded-full bg-primary-container/10 border border-primary-container/40 flex items-center justify-center text-[7px] font-mono font-bold">USD</div>
-                      <div className="w-5 h-5 rounded-full bg-primary-container/10 border border-primary-container/40 flex items-center justify-center text-[7px] font-mono font-bold">EUR</div>
-                    </div>
-                    <span className="text-[10px] font-mono text-on-surface-variant uppercase font-medium">
-                      Sync: {proj.syncTime || '120ms'}
-                    </span>
-                  </div>
-                )}
-
-                {isBatata && (
-                  <div className="flex justify-between items-center text-[9px] font-mono text-outline">
-                    <span>RESPONSIVE STATS</span>
-                    <span className="text-primary-container font-extrabold">LOW LATENCY</span>
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-
+          </article>
+        ))}
       </div>
-
-      {/* Footer trigger downloads */}
-      <div className="pt-8 flex flex-col items-center">
-        <button 
-          onClick={onDownloadDossier}
-          className="group relative px-8 py-4 bg-primary-container text-background font-mono text-xs font-black tracking-widest uppercase rounded overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,240,255,0.2)]"
-        >
-          <span className="relative z-10 flex items-center gap-3">
-            <Download className="w-4 h-4 text-background" />
-            Descargar Dossier Completo
-          </span>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-        </button>
-        <p className="mt-4 text-[9px] font-mono text-outline uppercase tracking-widest opacity-50">
-          Confidential Scouting Report // Authenticated UUID ID: {projects[0].id}
-        </p>
-      </div>
-
     </div>
   );
 }
