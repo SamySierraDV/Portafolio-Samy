@@ -14,6 +14,7 @@ import {
 // Shared models, details, and Types mapping
 import { developerProfile } from './data/portfolioData';
 import { Project, TacticalNode, ScoutingFilters } from './types';
+import cvFile from '../assets/cv/Samy_Sierr_Suarez_CV (2).pdf';
 
 // Left layout sidebar menu drawers
 import Sidebar from './components/Sidebar';
@@ -56,7 +57,13 @@ export default function App() {
   });
 
   const handleDownloadDossier = () => {
-    // Simulated compilation dossier download Hud feedback
+    const downloadLink = document.createElement('a');
+    downloadLink.href = cvFile;
+    downloadLink.download = 'Samy_Sierra_Suarez_CV.pdf';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+
     setScoutAlert({
       message: "COMPILING DOSSIER... EXPORTING METRICS OF '#7000-M' S. SIERRA TO LOCAL CLIENT",
       type: 'info'
