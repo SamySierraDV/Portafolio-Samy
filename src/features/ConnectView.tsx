@@ -19,7 +19,7 @@ export default function ConnectView() {
     scoutEmail: '',
     company: '',
     subjectOption: 'assessment',
-    budgetProposal: '70M',
+    budgetProposal: '3000000-4000000',
     customMessage: ''
   });
 
@@ -67,7 +67,7 @@ export default function ConnectView() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.scoutEmail) {
       addConsoleLog('ERROR: Valid Corporate Scout Email required');
@@ -78,12 +78,38 @@ export default function ConnectView() {
     addConsoleLog(`ESTABLISHING ENCRYPTED HUD CONNECTION...`);
     addConsoleLog(`TARGET DISPATCH READY: '${formData.company}' -> [${developerProfile.displayShortName}]`);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/sssamyandres@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `Nueva propuesta para ${developerProfile.fullName}`,
+          _template: 'table',
+          Nombre: formData.scoutName,
+          Correo: formData.scoutEmail,
+          Empresa: formData.company,
+          Asunto: formData.subjectOption,
+          Presupuesto: formData.budgetProposal,
+          Mensaje: formData.customMessage
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Email service responded with ${response.status}`);
+      }
+
       setIsSending(false);
       setIsSent(true);
       addConsoleLog(`SUCCESS: Scout query packet dispatched. Confirmation ID: #SQ-${Math.floor(Math.random() * 9000) + 1000}`);
       addConsoleLog(`PERIMETER SECURE. STANDING BY FOR RESPONSE...`);
-    }, 1500);
+    } catch (error) {
+      setIsSending(false);
+      addConsoleLog('ERROR: Unable to dispatch scout query packet. Please try again.');
+      console.error('Contact form submission failed:', error);
+    }
   };
 
   const handleReset = () => {
@@ -92,7 +118,7 @@ export default function ConnectView() {
       scoutEmail: '',
       company: '',
       subjectOption: 'assessment',
-      budgetProposal: '70M',
+      budgetProposal: '3000000-4000000',
       customMessage: ''
     });
     setIsSent(false);
@@ -201,9 +227,10 @@ export default function ConnectView() {
                   onChange={handleTextChange}
                   className="w-full bg-surface-container-low border border-outline-variant/30 focus:border-primary-container/50 text-xs rounded-lg px-3 py-3 text-on-surface focus:outline-none appearance-none"
                 >
-                  <option value="50M">&lt; 50.0M € (Mid Contract)</option>
-                  <option value="70M">50.0M - 70.0M € (Samy Release Rating)</option>
-                  <option value="100M">&gt; 70.0M € (Elite Premium Bid)</option>
+                  <option value="less-than-2500000">&lt; $2.500.000 COP</option>
+                  <option value="3000000-4000000">$3.000.000 - $4.000.000 COP</option>
+                  <option value="4000000-5000000">$4.000.000 - $5.000.000 COP</option>
+                  <option value="more-than-5000000">&gt; $5.000.000 COP</option>
                 </select>
               </div>
             </div>
