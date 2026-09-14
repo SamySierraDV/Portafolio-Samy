@@ -115,33 +115,33 @@ export default function AcademyView({ onDownloadDossier }: AcademyViewProps) {
                 </div>
               ))}
 
-              {/* Card 3 (Full width horizontal panel) */}
-              {academicCredentials[2] && (
-                <div className="sm:col-span-2 bg-surface-container border-l-4 border-l-primary-container border-y border-r border-outline-variant/25 p-5 rounded-r-lg relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {/* Additional credentials */}
+              {academicCredentials.slice(2).map((acad) => (
+                <div key={acad.id} className="sm:col-span-2 bg-surface-container border-l-4 border-l-primary-container border-y border-r border-outline-variant/25 p-5 rounded-r-lg relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-primary-container/10 border border-primary-container flex items-center justify-center">
                       <Award className="w-6 h-6 text-primary-container" />
                     </div>
                     <div>
                       <h4 className="font-display text-base font-extrabold text-primary tracking-wide">
-                        {academicCredentials[2].title}
+                        {acad.title}
                       </h4>
                       <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
-                        {academicCredentials[2].institution}
+                        {acad.institution}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:items-end">
-                    <span className="font-mono text-lg font-black text-primary-container glow-cyan-text">
-                      {academicCredentials[2].tagText}h
+                    <span className="font-mono text-sm font-black text-primary-container glow-cyan-text text-right">
+                      {acad.tagText}
                     </span>
                     <span className="font-mono text-[9px] text-outline uppercase tracking-widest leading-none">
-                      TOTAL VOLUME
+                      {acad.durationVolume}
                     </span>
                   </div>
                 </div>
-              )}
+              ))}
 
             </div>
           </div>

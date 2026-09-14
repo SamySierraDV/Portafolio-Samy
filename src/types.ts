@@ -40,6 +40,7 @@ export interface WorkExperience {
   company: string;
   role: string;
   description: string;
+  achievements?: string[];
   tags: string[];
   isCurrent?: boolean;
 }

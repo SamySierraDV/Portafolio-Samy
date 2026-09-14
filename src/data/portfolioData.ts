@@ -32,6 +32,19 @@ export const developerProfile = {
 
 export const workExperiences: WorkExperience[] = [
   {
+    id: "exp-techmind-hackathon",
+    period: "AGO. 2026",
+    company: "Hackathon Oracle ONE + Alura + NoCountry // TEAM 13",
+    role: "Lead Backend, Persistencia e Infraestructura",
+    description: "Finalista Top 21 tras 130 horas de desarrollo integral en TechMind / LogiCore.",
+    achievements: [
+      "Finalista (Top 21 entre múltiples equipos) tras 130 horas de desarrollo integral en el proyecto TechMind / LogiCore.",
+      "Diseñé una arquitectura híbrida orquestando Java (Spring Boot 3 + Vaadin 24) con un microservicio de Machine Learning en Python (FastAPI).",
+      "Implementé infraestructura en PostgreSQL (Supabase) con migraciones Flyway seguras, gestionando la integridad referencial compleja para hilos de chat de IA, anotaciones y workflows dinámicos."
+    ],
+    tags: ["SPRING BOOT 3", "VAADIN 24", "FASTAPI", "POSTGRESQL", "FLYWAY"],
+  },
+  {
     id: "exp-granisammy",
     period: "AGO. 2025 – ACTUALIDAD",
     company: "Granlsammy Acabados S.A.S",
@@ -242,6 +255,16 @@ export const academicCredentials: AcademicCredential[] = [
     tagText: "326h",
     icon: "Award",
     durationVolume: "326h TOTAL VOLUME"
+  },
+  {
+    id: "acad4",
+    title: "Oracle Cloud Infrastructure (OCI) Foundations Associate",
+    institution: "Oracle",
+    type: "FORMATION",
+    verified: true,
+    tagText: "JUN 2026 - JUN 2028",
+    icon: "Cloud",
+    durationVolume: "CERTIFICATION VALID"
   }
 ];
 

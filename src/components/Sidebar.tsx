@@ -44,7 +44,7 @@ export default function Sidebar({ isOpen, onClose, activeTab, setActiveTab, onDo
       {/* Main Drawer Shell */}
       <nav 
         id="navigation-drawer"
-        className={`fixed inset-y-0 left-0 z-50 flex flex-col bg-surface-container-low text-on-surface h-full w-[280px] md:w-80 rounded-r-xl border-r border-outline-variant/30 shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed top-16 bottom-0 left-0 z-50 flex flex-col bg-surface-container-low text-on-surface h-[calc(100vh-4rem)] w-[280px] md:w-80 rounded-r-xl border-r border-outline-variant/30 shadow-2xl transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
         aria-label="Navegación Principal"
