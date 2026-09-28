@@ -14,7 +14,7 @@ import {
 // Shared models, details, and Types mapping
 import { developerProfile } from './data/portfolioData';
 import { Project, TacticalNode, ScoutingFilters } from './types';
-import cvFile from '../assets/cv/Samy_Sierr_Suarez_CV (2).pdf';
+import cvFile from '../assets/cv/Samy_Sierra_Suarez_CV.pdf';
 
 // Left layout sidebar menu drawers
 import Sidebar from './components/Sidebar';
@@ -71,7 +71,7 @@ export default function App() {
 
     setTimeout(() => {
       setScoutAlert({
-        message: "SUCCESS: PROFILE EXPORT PACKET COMPLETED! SAMY_SIERRA_DOSSIER.PDF DOWNLOADED.",
+        message: "SUCCESS: PROFILE EXPORT PACKET COMPLETED! SAMY_SIERRA_SUAREZ_CV.PDF DOWNLOADED.",
         type: 'success'
       });
       // Auto close after 3.5s

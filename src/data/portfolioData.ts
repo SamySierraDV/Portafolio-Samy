@@ -32,17 +32,18 @@ export const developerProfile = {
 
 export const workExperiences: WorkExperience[] = [
   {
-    id: "exp-techmind-hackathon",
-    period: "AGO. 2026",
-    company: "Hackathon Oracle ONE + Alura + NoCountry // TEAM 13",
-    role: "Lead Backend, Persistencia e Infraestructura",
-    description: "Finalista Top 21 tras 130 horas de desarrollo integral en TechMind / LogiCore.",
+    id: "exp-freelance",
+    period: "AGO. 2022 – MAR. 2023",
+    company: "Self-Employed",
+    role: "Desarrollador Freelance",
+    description: "Construcción de soluciones a medida con enfoque en performance y escalabilidad.",
     achievements: [
-      "Finalista (Top 21 entre múltiples equipos) tras 130 horas de desarrollo integral en el proyecto TechMind / LogiCore.",
-      "Diseñé una arquitectura híbrida orquestando Java (Spring Boot 3 + Vaadin 24) con un microservicio de Machine Learning en Python (FastAPI).",
-      "Implementé infraestructura en PostgreSQL (Supabase) con migraciones Flyway seguras, gestionando la integridad referencial compleja para hilos de chat de IA, anotaciones y workflows dinámicos."
+      "Construcción de plataforma de criptomonedas con React, Node.js y MySQL.",
+      "Incrementé la retención de usuarios en un 30% mediante notificaciones en tiempo real.",
+      "Desarrollo y mantenimiento de apps web/móviles según requerimientos.",
+      "Ejecución de pruebas unitarias asegurando calidad sin comprometer el rendimiento."
     ],
-    tags: ["SPRING BOOT 3", "VAADIN 24", "FASTAPI", "POSTGRESQL", "FLYWAY"],
+    tags: ["REACT", "NODE.JS", "MYSQL", "CRYPTO"]
   },
   {
     id: "exp-granisammy",
@@ -80,18 +81,17 @@ export const workExperiences: WorkExperience[] = [
     tags: ["JAVA", "IA", "QR PAYMENTS", "API DESIGN"]
   },
   {
-    id: "exp-freelance",
-    period: "AGO. 2022 – MAR. 2023",
-    company: "Self-Employed",
-    role: "Desarrollador Freelance",
-    description: "Construcción de soluciones a medida con enfoque en performance y escalabilidad.",
+    id: "exp-techmind-hackathon",
+    period: "AGO. 2026",
+    company: "Hackathon Oracle ONE + Alura + NoCountry // TEAM 13",
+    role: "Lead Backend, Persistencia e Infraestructura",
+    description: "Finalista Top 21 tras 130 horas de desarrollo integral en TechMind / LogiCore.",
     achievements: [
-      "Construcción de plataforma de criptomonedas con React, Node.js y MySQL.",
-      "Incrementé la retención de usuarios en un 30% mediante notificaciones en tiempo real.",
-      "Desarrollo y mantenimiento de apps web/móviles según requerimientos.",
-      "Ejecución de pruebas unitarias asegurando calidad sin comprometer el rendimiento."
+      "Finalista (Top 21 entre múltiples equipos) tras 130 horas de desarrollo integral en el proyecto TechMind / LogiCore.",
+      "Diseñé una arquitectura híbrida orquestando Java (Spring Boot 3 + Vaadin 24) con un microservicio de Machine Learning en Python (FastAPI).",
+      "Implementé infraestructura en PostgreSQL (Supabase) con migraciones Flyway seguras, gestionando la integridad referencial compleja para hilos de chat de IA, anotaciones y workflows dinámicos."
     ],
-    tags: ["REACT", "NODE.JS", "MYSQL", "CRYPTO"]
+    tags: ["SPRING BOOT 3", "VAADIN 24", "FASTAPI", "POSTGRESQL", "FLYWAY"],
   }
 ];
 
