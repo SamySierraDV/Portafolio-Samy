@@ -12,22 +12,22 @@ import LogicorePhoto from '../../assets/images/foto-logicore.webp';
 import { i } from 'motion/react-client';
 
 export const developerProfile = {
-  fullName: "Samy Sierra Suárez",
+  fullName: "Samy Andrés Sierra Suárez",
   displayShortName: "S. Sierra Suárez", // Visual brand matching the screens
   titleName: "S. SIERRA SUÁREZ // PROSPECT ID",
-  role: "Backend Developer // Architect",
+  role: "Desarrollador Java Full Stack",
   id: "#7000-M",
   marketValue: "70.0M €",
   potential: 4, // 4 out of 5 filled dots
   birthplace: "Bogotá, COL",
   experienceYears: "3+ YRS",
-  currentClub: "Granlsammy S.A.S",
-  signedUntil: "30/07/2025",
+  currentClub: "Licisoluciones S.A.S. BIC",
+  signedUntil: "Disponibilidad inmediata",
   profilePhoto: "https://lh3.googleusercontent.com/aida-public/AB6AXuBFAzrGXFuP--s586xInYyjbz4omKALj08X2Y6ARdNvhtim0O9rL11GZYuBMybIhTW0vj47dZS-6xgRb9Q77hfBzjvDOnpc5cHTSe1zzSd_V08EYjznkYIwbHnxvzXXvD5U_8Qj2LNKttnPlattM6SxvjWEKrstvwXHy2c8QOXnnJseQkbPosVDPkMOpEMl58OqEkiMQSqS0DGTmPjCigcNKn-YG9DdguJl4MdT56UYW6jmUwEdnFXmJkNxYsuNL95RXmxEyNcbuic",
   drawerPhoto: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWxvt2q14iejuS05n9PxvIFrNZSXnyv7x4tBuwecfiYbIBYDN-gCkYQlf0F8rAyds7RNv4I0DPGntswfdHfFM73QeJO6hBLzI4In-jA5w-aC5gwqBKUOUYd2JXSdadR0Hx6eXzEOuh-P8-eyyTkmnTYHF9dmEcBh6E27cHjTb8cUQn-kx56sn9mbF7EfJnhrFzA5H_-rGOqknuVRsbLn9o6L3FbTgpl7D_50tw4_VKzyI6wpBD8IX2Maml535pWtS-xg54HgQfix8",
   altPhoto: "https://lh3.googleusercontent.com/aida-public/AB6AXuDGVSVpxmSxrjkoWfy_ezQs8LwxobXsysMOWWScexrDBkt18RnUN7kOnkHSJ6vOMKNkXdPab76cgVmBIMVndvkEIDGhzQHCv45nFrP61YUqyfx7IQS43-qwoQNyF-fhfYtV6fXTSQdACjvcmL5WfPtU3djpMQ_6SHFl346cdlZZnwfeMbN1WcB_ZpdCZf9Em6bgrGpBds_dZtbI-nVPWngXbwvVVJQLf7OKXWib_YKm8qfupLRH3zcKONZEyERzKoXQfb64qbszZpw",
   blueprintPhoto: "https://lh3.googleusercontent.com/aida-public/AB6AXuBct2b1TfE3y_nyY8pkTo5P09FPP1Uscae3XxW2w7ylYMX9ssmTqWosEg8pxS-h3gpgtTJU8YcAJ208_Ee_mAyUaa9D-FM2eINH7YU_VhWUGONTRPKRwL6w9jgxUaxscIOOUH2n9FTcKGnVWocds0T7_fhwB5U-ehvqH7miHj8-I54eBtJfTGX4RmGT4jwovJRBJ2o8JIyYA0yfG093XMEqpmRKR8MoQo09LiWx7pstSxsFcQTTa4FXWALEUS8SkYlQi81xr1xC7qc",
-  scoutNotes: "High versatility in backend systems with a growing specialization in decentralized architectures. The completion of the Oracle Next program suggests a disciplined approach to intensive technical upskilling."
+  scoutNotes: "Desarrollador Java Full Stack con experiencia en backend, bases de datos, APIs REST, automatización e integración de pagos digitales e IA. Disponible para jornada completa en modalidad remota o híbrida."
 };
 
 export const workExperiences: WorkExperience[] = [
@@ -46,8 +46,8 @@ export const workExperiences: WorkExperience[] = [
   },
   {
     id: "exp-granisammy",
-    period: "AGO. 2025 – ACTUALIDAD",
-    company: "Granlsammy Acabados S.A.S",
+    period: "MAY. 2023 – JUL. 2025",
+    company: "Granisammy Acabados S.A.S.",
     role: "Software Developer",
     description: "Lidero la automatización de infraestructura crítica y optimización de arquitectura backend.",
     achievements: [
@@ -60,12 +60,11 @@ export const workExperiences: WorkExperience[] = [
       "Implementé control de acceso robusto para protección de datos sensibles.",
       "Optimización de consultas SQL mejorando el rendimiento en +30%."
     ],
-    tags: ["SPRING BOOT", "VAADIN", "SOLID", "SQL OPTIMIZATION"],
-    isCurrent: true
+    tags: ["SPRING BOOT", "VAADIN", "SOLID", "SQL OPTIMIZATION"]
   },
   {
     id: "exp-licisoluciones",
-    period: "ENE. 2024 – JUL. 2025",
+    period: "AGO. 2025 – JUL. 2026",
     company: "Licisoluciones S.A.S BIC",
     role: "Java Software Engineer",
     description: "Desarrollo de ecosistemas digitales inteligentes para gestión comercial y financiera.",
@@ -82,7 +81,7 @@ export const workExperiences: WorkExperience[] = [
   },
   {
     id: "exp-freelance",
-    period: "AGO. 2022 – ENE. 2023",
+    period: "AGO. 2022 – MAR. 2023",
     company: "Self-Employed",
     role: "Desarrollador Freelance",
     description: "Construcción de soluciones a medida con enfoque en performance y escalabilidad.",
@@ -197,7 +196,8 @@ export const projects: Project[] = [
     complexity: "LIGHT",
     calcReduction: "10%",
     status: "ESTABLE",
-    image: AmigoPhoto
+    image: AmigoPhoto,
+    demoUrl: "https://samysierradv.github.io/Juego-Amigo-Secreto-JS/"
   },
   {
     id: "project-microservicios",
@@ -230,31 +230,31 @@ export const projects: Project[] = [
 export const academicCredentials: AcademicCredential[] = [
   {
     id: "acad1",
-    title: "Ingeniería de Sistemas",
+    title: "Ingeniería de Sistemas (esperado 2027)",
     institution: "Universidad Central",
     type: "DEGREE",
     verified: true,
-    tagText: "DEGREE",
+    tagText: "ENE. 2021 - DIC. 2027",
     icon: "GraduationCap"
   },
   {
     id: "acad2",
-    title: "Blockchain",
-    institution: "Universidad Ean",
-    type: "SPECIALIZATION",
+    title: "Oracle Next Education G9 - Principiante en Programación",
+    institution: "Oracle + Alura Latam",
+    type: "FORMATION",
     verified: true,
-    tagText: "SPECIALIZATION",
-    icon: "Database"
+    tagText: "ENE. 2025 - AGO. 2025",
+    icon: "Award"
   },
   {
     id: "acad3",
-    title: "Oracle Next Education",
-    institution: "Intensive Technical Formation",
+    title: "ONE Tech Foundation G9 - Back End",
+    institution: "Alura + Oracle Next Education",
     type: "FORMATION",
     verified: true,
-    tagText: "326h",
+    tagText: "MAR. 2026",
     icon: "Award",
-    durationVolume: "326h TOTAL VOLUME"
+    durationVolume: "326 HORAS"
   },
   {
     id: "acad4",
@@ -270,44 +270,47 @@ export const academicCredentials: AcademicCredential[] = [
 
 export const skillsData = {
   lenguajes: [
-    { name: "Java", icon: "Coffee", detail: "4+ Años // Senior" },
-    { name: "JavaScript", icon: "Code", detail: "3+ Años // Avanzado" },
-    { name: "SQL", icon: "Database", detail: "3+ Años // Experto" },
-    { name: "HTML5", icon: "FileCode", detail: "5+ Años // Dominio Total" },
-    { name: "CSS3", icon: "Palette", detail: "5+ Años // Dominio Total" }
+    { name: "Java", icon: "Coffee", detail: "Lenguaje de programación" },
+    { name: "Python", icon: "Code", detail: "Microservicios y procesamiento de datos" },
+    { name: "JavaScript", icon: "Code", detail: "Lenguaje de programación" },
+    { name: "SQL", icon: "Database", detail: "Bases de datos relacionales" }
   ],
   frameworks: [
-    { name: "Spring Boot", icon: "Leaf", detail: "3+ Años // Core Stack" },
-    { name: "Spring Security", icon: "ShieldCheck", detail: "2+ Años // Security Lead" },
-    { name: "Spring Data", icon: "Server", detail: "3+ Años // Persistence Master" },
-    { name: "Vaadin", icon: "Layout", detail: "2+ Años // UI Orchestration" },
-    { name: "React", icon: "Atom", detail: "2+ Años // Frontend Flow" },
-    { name: "Node.js", icon: "Hexagon", detail: "2+ Años // Backend Services" }
+    { name: "Spring Boot", icon: "Leaf", detail: "Desarrollo backend con Java" },
+    { name: "Spring Security", icon: "ShieldCheck", detail: "Seguridad de aplicaciones" },
+    { name: "Vaadin", icon: "Layout", detail: "Aplicaciones con Java" },
+    { name: "React", icon: "Atom", detail: "Desarrollo Full Stack" },
+    { name: "Node.js", icon: "Hexagon", detail: "Servicios RESTful" },
+    { name: "FastAPI", icon: "Server", detail: "Microservicios en Python" }
   ],
   databases: [
-    { name: "MongoDB", icon: "Database", detail: "3+ Años // NoSQL Guru" },
-    { name: "MySQL", icon: "Database", detail: "3+ Años // Relational Master" },
-    { name: "JPA/Hibernate", icon: "Layers", detail: "3+ Años // ORM Expert" }
+    { name: "JPA/Hibernate", icon: "Layers", detail: "Persistencia y bases de datos" },
+    { name: "PostgreSQL", icon: "Database", detail: "Base de datos relacional" },
+    { name: "MySQL", icon: "Database", detail: "Base de datos relacional" },
+    { name: "MongoDB", icon: "Database", detail: "Base de datos NoSQL" }
   ],
   tools: [
-    { name: "Git", icon: "GitBranch", detail: "4+ Años // Version Control" },
-    { name: "GitHub", icon: "Github", detail: "4+ Años // CI/CD Specialist" },
-    { name: "Microservicios", icon: "Network", detail: "2+ Años // Distributed Arch" },
-    { name: "REST API", icon: "Terminal", detail: "3+ Años // High Throughput" },
-    { name: "MVC", icon: "LayoutGrid", detail: "3+ Años // Design Pattern" },
-    { name: "OOP", icon: "Box", detail: "4+ Años // Core Fundamentals" }
+    { name: "APIs REST", icon: "Terminal", detail: "Diseño e integración de servicios" },
+    { name: "Microservicios", icon: "Network", detail: "Arquitectura y prácticas" },
+    { name: "SOLID", icon: "Box", detail: "Principios de diseño" },
+    { name: "Oracle Cloud Infrastructure (OCI)", icon: "Cloud", detail: "Cloud y herramientas" },
+    { name: "Docker", icon: "Box", detail: "Cloud y herramientas" },
+    { name: "Git", icon: "GitBranch", detail: "Control de versiones" },
+    { name: "GitHub", icon: "Github", detail: "Control de versiones" },
+    { name: "Jira", icon: "Layout", detail: "Gestión de proyectos" }
   ],
   methodologies: [
-    { name: "SCRUM", icon: "Users", detail: "Sprints // Agile Execution" },
-    { name: "Desarrollo Ágil", icon: "RefreshCw", detail: "Rapid Iteration" },
-    { name: "Pasarelas de pago", icon: "CreditCard", detail: "Stripe / PayPal Integration" },
-    { name: "Integración de IA", icon: "Brain", detail: "OpenAI / LLM Orchestration" }
+    { name: "SCRUM", icon: "Users", detail: "Arquitectura y prácticas" },
+    { name: "Pruebas unitarias", icon: "CheckCircle2", detail: "Arquitectura y prácticas" },
+    { name: "Autenticación", icon: "ShieldCheck", detail: "Otros" },
+    { name: "Pagos digitales", icon: "CreditCard", detail: "Otros" },
+    { name: "Integración de IA", icon: "Brain", detail: "Otros" }
   ]
 };
 
-export const coreLanguages = ["Java", "SQL", "TypeScript", "Python"];
-export const frameworks = ["Spring Boot", "Vaadin", "JPA/Hibernate"];
-export const ecosystem = ["MongoDB", "PostgreSQL", "Git / GitHub", "Docker"];
+export const coreLanguages = ["Java", "Python", "JavaScript", "SQL"];
+export const frameworks = ["Spring Boot", "Spring Security", "Vaadin", "React", "Node.js", "FastAPI"];
+export const ecosystem = ["JPA/Hibernate", "PostgreSQL", "MySQL", "MongoDB", "OCI", "Docker", "Git", "GitHub", "Jira"];
 
 export const tacticalNodes: TacticalNode[] = [
   {
@@ -317,8 +320,8 @@ export const tacticalNodes: TacticalNode[] = [
     y: 15,
     icon: "Hub",
     details: {
-      description: "Expertise in event-driven patterns, service mesh, and container orchestration (K8s/Docker). Focus on high availability and fault tolerance. Implements robust inter-service communication using gRPC and message brokers.",
-      tags: ["KUBERNETES", "DOCKER", "ISTIO", "KAFKA"],
+      description: "Integración de una arquitectura Java con un microservicio de Machine Learning en Python mediante FastAPI, junto con procesamiento de datos e infraestructura Docker.",
+      tags: ["JAVA", "SPRING BOOT", "PYTHON", "FASTAPI", "DOCKER"],
       scalability: 98,
       resilience: 94,
       observability: 91,
@@ -333,8 +336,8 @@ export const tacticalNodes: TacticalNode[] = [
     y: 42,
     icon: "Terminal",
     details: {
-      description: "Architecting high-throughput RESTful and GraphQL APIs with optimized gateways. Specialized in rate limiting, cache headers management and request sanitization.",
-      tags: ["EXPRESS", "GRAPHQL", "SWAGGER", "SPRING GATEWAY"],
+      description: "Diseño e integración de APIs REST y endpoints para plataformas web y móviles.",
+      tags: ["APIS REST", "SPRING BOOT", "NODE.JS", "REACT"],
       scalability: 95,
       resilience: 92,
       observability: 89,
@@ -349,8 +352,8 @@ export const tacticalNodes: TacticalNode[] = [
     y: 65,
     icon: "Shield",
     details: {
-      description: "Hardening system perimeter utilizing OAuth2, JWT mechanisms, and TLS encryption protocols. Expert in dependency vulnerability scans, CORS mitigation and secure storage practices.",
-      tags: ["SPRING SECURITY", "JWT", "BCRYPT", "OWASP"],
+      description: "Implementación de autenticación y seguridad de aplicaciones con Spring Security, incluida la protección de pagos digitales.",
+      tags: ["SPRING SECURITY", "AUTENTICACIÓN", "PAGOS DIGITALES"],
       scalability: 90,
       resilience: 96,
       observability: 93,
@@ -360,13 +363,13 @@ export const tacticalNodes: TacticalNode[] = [
   },
   {
     id: "node-cache",
-    label: "Data Cache",
+    label: "Persistencia",
     x: 70,
     y: 65,
     icon: "Cpu",
     details: {
-      description: "Optimizing database responses via high-performance storage cache layers. Implements cache eviction algorithms (LRU, LFU) and read-through/write-through strategies.",
-      tags: ["REDIS", "MEMCACHED", "EHCACHE", "SPRING LOGIC"],
+      description: "Persistencia de datos con JPA/Hibernate y bases de datos relacionales y NoSQL.",
+      tags: ["JPA", "HIBERNATE", "POSTGRESQL", "MYSQL", "MONGODB"],
       scalability: 97,
       resilience: 90,
       observability: 95,
@@ -381,8 +384,8 @@ export const tacticalNodes: TacticalNode[] = [
     y: 85,
     icon: "Database",
     details: {
-      description: "Relational database tuning, writing highly optimized complex SQL plans, designing indices properly, maintaining ACID requirements reliably on massive ledger tables.",
-      tags: ["INDEXES", "SCHEMAS", "REPLICATION", "MONITORING"],
+      description: "Uso de PostgreSQL y SQL para persistencia y optimización de consultas.",
+      tags: ["POSTGRESQL", "SQL", "PERSISTENCIA"],
       scalability: 88,
       resilience: 93,
       observability: 86,
@@ -392,13 +395,13 @@ export const tacticalNodes: TacticalNode[] = [
   },
   {
     id: "node-cloud",
-    label: "AWS Cloud",
+    label: "OCI / Tools",
     x: 85,
     y: 85,
     icon: "Cloud",
     details: {
-      description: "Deploying high-performance backends to cloud infrastructure. Provisioning secure VPC pipelines, managed containers (ECS/EKS) and monitoring performance budgets proactively.",
-      tags: ["VPC", "ECS", "IAM", "CLOUDWATCH"],
+      description: "Uso de Oracle Cloud Infrastructure, Docker y herramientas de colaboración y control de versiones.",
+      tags: ["OCI", "DOCKER", "GIT", "GITHUB", "JIRA"],
       scalability: 92,
       resilience: 91,
       observability: 90,

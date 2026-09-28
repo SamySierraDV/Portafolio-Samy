@@ -38,13 +38,13 @@ export default function ConnectView() {
     const devName = developerProfile.fullName.split(' ')[0];
     switch (subjId) {
       case 'assessment':
-        msg = `Hi ${devName},\n\nWe have reviewed your profile at Scouting HQ. We are extremely impressed with your Microservices architecture expertise ($MS-808) and custom Kafka latency optimizations.\n\nWe would love to coordinate a technical review call next week to integrate with our system.`;
+        msg = `Hi ${devName},\n\nWe have reviewed your profile and are impressed with your Java Full Stack experience, REST API development, and digital payments integration.\n\nWe would love to coordinate a technical review call next week.`;
         break;
       case 'contract':
-        msg = `Hello ${devName},\n\nOur recruiting committee has qualified you as an Elite Tier Backend Architect. We have allocated a performance budget targeting your signed release threshold.\n\nLet's negotiate your transfer draft options directly.`;
+        msg = `Hello ${devName},\n\nWe would like to discuss your immediate availability and a role aligned with your Java Full Stack, backend, and database experience.\n\nLet's coordinate a conversation about the opportunity.`;
         break;
       case 'warroom':
-        msg = `Dear ${devName},\n\nWe would like to coordinate a technical debate in our Recruiting War Room next week regarding high-concurrency Spring Boot / MongoDB deployments.\n\nPlease share your available scouting windows.`;
+        msg = `Dear ${devName},\n\nWe would like to coordinate a technical conversation next week about Java and Spring Boot development, REST APIs, and software automation.\n\nPlease share your availability.`;
         break;
     }
     setFormData(prev => ({ 

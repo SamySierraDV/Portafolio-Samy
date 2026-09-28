@@ -247,31 +247,20 @@ export default function AcademyView({ onDownloadDossier }: AcademyViewProps) {
 
               {/* Tactical overlay indicators in center */}
               <div className="z-10 flex flex-col items-center">
-                <span className="font-mono text-lg font-extrabold text-primary shadow-sm">B2+</span>
-                <span className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest font-bold">INTERMEDIO</span>
+                <span className="font-mono text-lg font-extrabold text-primary shadow-sm">2</span>
+                <span className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest font-bold">IDIOMAS</span>
               </div>
             </div>
 
             {/* Horizontal progress indicators */}
-            <div className="space-y-4">
-              <div>
-                <div className="flex justify-between mb-1 text-xs font-mono">
-                  <span className="text-on-surface font-semibold text-[10px]">ESPAÑOL (NATIVO)</span>
-                  <span className="text-primary-container">100%</span>
-                </div>
-                <div className="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden text-left">
-                  <div className="h-full bg-primary-container shadow-[0_0_8px_#00f0ff]" style={{ width: '100%' }} />
-                </div>
+            <div className="space-y-3 font-mono text-[10px] uppercase">
+              <div className="flex justify-between gap-3">
+                <span className="text-on-surface font-semibold">Español</span>
+                <span className="text-primary-container">Nativo</span>
               </div>
-
-              <div>
-                <div className="flex justify-between mb-1 text-xs font-mono">
-                  <span className="text-on-surface font-semibold text-[10px]">INGLÉS (INTERMEDIO)</span>
-                  <span className="text-primary-container">70%</span>
-                </div>
-                <div className="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden text-left">
-                  <div className="h-full bg-primary-container shadow-[0_0_8px_#00f0ff]" style={{ width: '70%' }} />
-                </div>
+              <div className="flex justify-between gap-3">
+                <span className="text-on-surface font-semibold">Inglés</span>
+                <span className="text-primary-container">Intermedio (B1)</span>
               </div>
             </div>
           </div>

@@ -57,9 +57,9 @@ export default function DashboardView({ onNavigateToTab, onDownloadDossier, acti
   };
 
   const techStats = [
-    { title: "Core Language", value: "Java / Spring", level: "ADVANCED", grade: "Scout Grade: A+" },
-    { title: "Design Patterns", value: "System Arch", level: "ADVANCED", grade: "Scout Grade: A" },
-    { title: "Data Persistence", value: "SQL / NoSQL", level: "INTERMEDIATE", grade: "Scout Grade: B+" }
+    { title: "Languages", value: "Java / Python", level: "CV", grade: "JavaScript / SQL" },
+    { title: "Frameworks", value: "Spring Boot / FastAPI", level: "CV", grade: "Spring Security / Vaadin / React / Node.js" },
+    { title: "Persistence", value: "JPA / PostgreSQL", level: "CV", grade: "Hibernate / MySQL / MongoDB" }
   ];
 
   return (
@@ -186,11 +186,11 @@ export default function DashboardView({ onNavigateToTab, onDownloadDossier, acti
                     <span className="font-sans text-xs font-bold text-primary-container">{developerProfile.experienceYears}</span>
                   </div>
                   <div>
-                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">CURRENT CLUB</span>
+                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">LATEST EXPERIENCE</span>
                     <span className="font-sans text-xs font-bold text-on-surface">{developerProfile.currentClub}</span>
                   </div>
                   <div>
-                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">SIGNED UNTIL</span>
+                    <span className="block font-mono text-[9px] text-outline uppercase tracking-wider">AVAILABILITY</span>
                     <span className="font-sans text-xs font-bold text-on-surface">{developerProfile.signedUntil}</span>
                   </div>
                 </div>
@@ -259,7 +259,7 @@ export default function DashboardView({ onNavigateToTab, onDownloadDossier, acti
           </div>
 
           <p className="mt-4 font-sans text-[11px] text-on-surface-variant italic">
-            "Evaluation based on high-concurrency monolith decoupling projects, Kafka metrics and cloud scaling parameters."
+            "Profile highlights Java and Spring Boot development, REST APIs, database persistence and software automation."
           </p>
         </div>
 
@@ -299,8 +299,8 @@ export default function DashboardView({ onNavigateToTab, onDownloadDossier, acti
                 {category === 'lenguajes' ? 'Lenguajes' : 
                  category === 'frameworks' ? 'Frameworks' : 
                  category === 'databases' ? 'Bases de Datos' : 
-                 category === 'tools' ? 'Herramientas' : 
-                 category === 'methodologies' ? 'Metodologías' : category}
+                 category === 'tools' ? 'Arquitectura / Herramientas' : 
+                 category === 'methodologies' ? 'Prácticas / Otros' : category}
               </h4>
               <div className="flex flex-col gap-3">
                 {(items as any[]).map((item) => (

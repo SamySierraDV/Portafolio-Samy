@@ -28,7 +28,7 @@ export default function TacticsView({ onNodeSelect, filters, onFiltersChange }: 
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
   const formationsList = ["Java/Spring", "Node/React", "Python/AI"];
-  const selectLanguages = ["ENGLISH", "SPANISH", "GERMAN", "MANDARIN"];
+  const selectLanguages = ["SPANISH", "ENGLISH"];
 
   const handleFormationChange = (form: string) => {
     onFiltersChange({ ...filters, selectedFormation: form });
